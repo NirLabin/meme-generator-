@@ -100,7 +100,6 @@ function updateDataUrl(newUrl) {
 }
 
 function getLines() {
-  console.log(gMeme);
   return gMeme.lines;
 }
 
@@ -138,6 +137,7 @@ function filterByName(inputVal) {
 }
 
 function getSelectedLineIdx() {
+  console.log(gMeme.selectedLineIdx);
   return gMeme.selectedLineIdx;
 }
 
@@ -149,6 +149,11 @@ function addLine() {
   var newLine = _createLine();
   gMeme.lines.push(newLine);
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
+}
+
+function removeLine(idx) {
+  gMeme.lines.splice(idx, 1);
+  gMeme.selectedLineIdx = 0;
 }
 
 function _createLine() {
@@ -164,10 +169,4 @@ function _createLine() {
       y: getRandomInt(40, 450),
     },
   };
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }

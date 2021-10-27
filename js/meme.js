@@ -94,3 +94,9 @@ function onAddLine() {
   addLine();
   drawMeme();
 }
+
+function onRemoveLine() {
+  const idx = getSelectedLineIdx();
+  removeLine(idx);
+  drawMeme();
+}

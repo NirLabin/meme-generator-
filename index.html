@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Meme Generator</title>
+  </head>
+  <body onload="init()">
+    <header class="main-header">
+      <div class="logo-head">
+        <img src="img/LOGO.png" alt="Site-logo" class="logo" />
+      </div>
+      <nav>
+        <ul class="main-nav clean-list flex space-between align-center">
+          <li>
+            <a href="#" onclick="openSection('gallery')" class="gallery-nav"
+              >Gallery</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="openSection('editor')" class="editor-nav"
+              >Editor</a
+            >
+          </li>
+          <li class="saved-btn">
+            <a href="#" onclick="openSection('saved')" class="saved-nav"
+              >Saved</a
+            >
+          </li>
+          <li class="about-btn">
+            <a href="#" onclick="openModal()" class="about-nav">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main-container">
+      <!-- Gallery -->
+      <section class="page-section gallery-container main main-layout">
+        <article class="search-bar-container">
+          <input
+            type="text"
+            class="search-bar"
+            placeholder="Search by subject"
+            oninput="onSearchByName(this.value)"
+          />
+        </article>
+        <div class="img-gallery"></div>
+      </section>
+      <!-- Editor -->
+      <section class="page-section main-editor-container hidden">
+        <article class="flex column center align-center">
+          <div class="canvas-container">
+            <canvas class="meme-canvas" height="450" width="450"></canvas>
+          </div>
+        </article>
+        <article class="editor-container">
+          <h2>Create Meme</h2>
+          <div class="text-editor-cont">
+            <div class="line-container">
+              <ul class="line-btns-container clean-list">
+                <li class="btn-addLine" onclick="onAddLine()">➕</li>
+                <li class="btn-removeLine" onclick="onRemoveLine()">🗑</li>
+              </ul>
+            </div>
+            <div class="texts-container">
+              <ul class="texts-btn-container clean-list">
+                <select
+                  name="fonts"
+                  class="select-fonts"
+                  onchange="onChangeFont(this.value)"
+                >
+                  <option value="Impact">Impact</option>
+                </select>
+              </ul>
+              <input
+                type="text"
+                class="meme-text-input"
+                placeholder="Enter text"
+                oninput="onTextChange(this)"
+              />
+            </div>
+          </div>
+          <div class="share-container">
+            <button class="save-btn" onclick="onSaveMeme()">Save</button>
+            <button class="donwload-btn">
+              <a href="#" onclick="onDownloadMeme(this)" download="file-name"
+                >Download</a
+              >
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="js/storage-service.js"></script>
+    <script src="js/meme.js"></script>
+    <script src="js/meme-service.js"></script>
+  </body>
+</html>

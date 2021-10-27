@@ -137,9 +137,21 @@ function filterByName(inputVal) {
   return filteredImages;
 }
 
-function textChange() {}
+function getSelectedLineIdx() {
+  return gMeme.selectedLineIdx;
+}
 
-function _createLine(posY) {
+function getLinesNum() {
+  return gMeme.lines.length;
+}
+
+function addLine() {
+  var newLine = _createLine();
+  gMeme.lines.push(newLine);
+  gMeme.selectedLineIdx = gMeme.lines.length - 1;
+}
+
+function _createLine() {
   return {
     txt: 'Add text here',
     size: 40,
@@ -149,7 +161,13 @@ function _createLine(posY) {
     font: 'Impact',
     pos: {
       x: 225,
-      y: posY,
+      y: getRandomInt(40, 450),
     },
   };
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }

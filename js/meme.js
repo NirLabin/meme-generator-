@@ -83,5 +83,14 @@ function drawLine(line) {
 }
 
 function onTextChange(el) {
-  textChange();
+  if (!getLinesNum()) addLine();
+  const text = el.value;
+  const idx = getSelectedLineIdx();
+  gMeme.lines[idx].txt = text;
+  drawMeme();
+}
+
+function onAddLine() {
+  addLine();
+  drawMeme();
 }

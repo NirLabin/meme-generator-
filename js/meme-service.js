@@ -156,6 +156,13 @@ function removeLine(idx) {
   gMeme.selectedLineIdx = 0;
 }
 
+function switchLine() {
+  var idx = getSelectedLineIdx();
+  var linesNum = getLinesNum();
+  idx = idx === linesNum - 1 ? 0 : ++idx;
+  gMeme.selectedLineIdx = idx;
+}
+
 function _createLine() {
   return {
     txt: 'Add text here',

@@ -100,3 +100,7 @@ function onRemoveLine() {
   removeLine(idx);
   drawMeme();
 }
+
+function onSwitchLine() {
+  switchLine();
+}

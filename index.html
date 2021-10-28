@@ -17,17 +17,29 @@
       <nav>
         <ul class="main-nav clean-list flex space-between align-center">
           <li>
-            <a href="#" onclick="openSection('gallery')" class="gallery-nav"
+            <button class="btn-menu" onclick="onToggleMenu()">X</button>
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="openSection('gallery') , onToggleMenu()"
+              class="gallery-nav"
               >Gallery</a
             >
           </li>
           <li>
-            <a href="#" onclick="openSection('editor')" class="editor-nav"
+            <a
+              href="#"
+              onclick="openSection('editor') , onToggleMenu()"
+              class="editor-nav"
               >Editor</a
             >
           </li>
           <li class="saved-btn">
-            <a href="#" onclick="openSection('saved')" class="saved-nav"
+            <a
+              href="#"
+              onclick="openSection('saved') ,onToggleMenu()"
+              class="saved-nav"
               >Saved</a
             >
           </li>

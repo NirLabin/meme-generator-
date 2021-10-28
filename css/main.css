@@ -225,14 +225,6 @@ img {
   content: '\f037';
 }
 
-.text-storke-color::after {
-  content: '\f53f';
-}
-
-.text-fill-color::after {
-  content: '\f576';
-}
-
 .meme-text-input {
   color: #989898;
   border: none;

@@ -49,6 +49,7 @@ function openSection(page) {
 function onMemeClicked(el) {
   var memeId = el.dataset.imgid;
   updateImgId(memeId);
+  gMeme.lines.splice(1);
   drawMeme();
   openSection('editor');
 }
@@ -74,8 +75,8 @@ function drawLines() {
 
 function drawLine(line) {
   var text = line.txt.toUpperCase();
-  gCtx.lineWidth = 3;
   gCtx.font = `${line.size}px ${line.font}`;
+  gCtx.lineWidth = 2;
   gCtx.fillStyle = line.fillColor;
   gCtx.strokeStyle = line.strokeColor;
   gCtx.textAlign = line.align;

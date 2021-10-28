@@ -147,7 +147,6 @@ function getLinesNum() {
 function addLine() {
   const newLine = _createLine();
   gMeme.lines.push(newLine);
-  console.log(gMeme);
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
 }
 

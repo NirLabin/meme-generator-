@@ -94,6 +94,17 @@ function onTextChange(el) {
 function onAddLine() {
   addLine();
   drawMeme();
+  clearTextInput();
+}
+
+function clearTextInput() {
+  document.querySelector('.meme-text-input').value = '';
+}
+
+function getTextInput() {
+  let idx = getSelectedLineIdx();
+  let text = gMeme.lines[idx].txt;
+  return text;
 }
 
 function onRemoveLine() {
@@ -104,6 +115,7 @@ function onRemoveLine() {
 
 function onSwitchLine() {
   switchLine();
+  document.querySelector('.meme-text-input').value = getTextInput();
 }
 
 function onLineUp() {
@@ -139,4 +151,10 @@ function onChangeStroke(color) {
 function onChangeFill(color) {
   changeFillColor(color);
   drawMeme();
+}
+
+function onDownloadMeme(elLink) {
+  const data = gCanvas.toDataURL();
+  elLink.href = data;
+  elLink.download = 'MEME';
 }

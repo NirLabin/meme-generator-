@@ -1,6 +1,6 @@
 'use strict';
 
-const KEY_MEM = 'meme';
+const KEY_MEME = 'meme';
 var gMeme;
 var gLineSpace = 1;
 
@@ -126,8 +126,7 @@ function resetMeme() {
 }
 
 function filterByName(inputVal) {
-  const images = gImages;
-  const filteredImages = images.filter((img) => {
+  const filteredImages = gImages.filter((img) => {
     let keyWordArr = img.keywords.filter((keyword) => {
       return keyword.toLowerCase().startsWith(inputVal);
     });

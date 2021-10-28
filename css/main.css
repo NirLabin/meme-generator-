@@ -42,6 +42,13 @@ img:hover {
   flex-grow: 1;
 }
 
+/* .saved-gallery .saved-meme {
+  border-radius: 0.625rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2rem;
+} */
+
 /* Header */
 .main-header {
   display: flex;

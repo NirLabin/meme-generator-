@@ -2,7 +2,7 @@
 
 const KEY_MEME = 'meme';
 var gMeme;
-var gLineSpace = 1;
+var gSavedMemes;
 
 const gImages = [
   {
@@ -103,14 +103,14 @@ function getLines() {
   return gMeme.lines;
 }
 
-function resetMeme() {
+function resetMeme(memeId = 1) {
   gMeme = {
-    selectedImgId: 1,
+    selectedImgId: memeId,
     selectedLineIdx: 0,
     dataUrl: undefined,
     lines: [
       {
-        txt: 'Make a meme',
+        txt: '',
         size: 40,
         align: 'center',
         strokeColor: '#000000',
@@ -127,16 +127,15 @@ function resetMeme() {
 
 function filterByName(inputVal) {
   const filteredImages = gImages.filter((img) => {
-    let keyWordArr = img.keywords.filter((keyword) => {
+    let keyWords = img.keywords.filter((keyword) => {
       return keyword.toLowerCase().startsWith(inputVal);
     });
-    if (keyWordArr.length) return true;
+    if (keyWords.length) return true;
   });
   return filteredImages;
 }
 
 function getSelectedLineIdx() {
-  console.log(gMeme.selectedLineIdx);
   return gMeme.selectedLineIdx;
 }
 
@@ -235,3 +234,20 @@ function changeFont(newFont) {
   const idx = getSelectedLineIdx();
   gMeme.lines[idx].font = newFont;
 }
+
+// function saveMeme() {
+//   let memes = [];
+//   memes.push(gMeme);
+//   console.log(gMeme);
+//   gSavedMemes = memes;
+//   console.log(memes);
+//   saveMemeToStorage();
+// }
+
+// function saveMemeToStorage() {
+//   saveToStorage(KEY_MEME, gSavedMemes);
+// }
+
+// function getSavedMemes() {
+//   return gSavedMemes;
+// }

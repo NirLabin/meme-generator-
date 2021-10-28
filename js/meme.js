@@ -2,7 +2,6 @@
 
 var gCanvas;
 var gCtx;
-var gStartPos;
 
 function init() {
   gCanvas = document.querySelector('canvas');
@@ -11,6 +10,7 @@ function init() {
   renderGallery(images);
   resetMeme();
   drawMeme();
+  // renderSavedMemes();
 }
 
 function renderGallery(imgs) {
@@ -50,6 +50,7 @@ function onMemeClicked(el) {
   var memeId = el.dataset.imgid;
   updateImgId(memeId);
   clearTextInput();
+  resetMeme(memeId);
   drawMeme();
   openSection('editor');
 }
@@ -164,3 +165,24 @@ function onDownloadMeme(elLink) {
   elLink.href = data;
   elLink.download = 'MEME';
 }
+
+// function onSaveMeme() {
+//   saveMeme();
+// }
+
+// function renderSavedMemes() {
+//   const savedMemes = getSavedMemes();
+//   console.log(savedMemes);
+//   const savedMemesGallery = document.querySelector('.saved-gallery');
+//   if (!savedMemes || !savedMemes.length) {
+//     return (savedMemesGallery.innerHTML =
+//       '<h2 class="saved-empty-text">You have no saved memes</h2>');
+//   }
+//   var strHTML = '';
+//   savedMemes.forEach((meme, idx) => {
+//     strHTML += `<article data-imgId="${idx}" class="saved-meme">
+//                   <img src="${meme.dataUrl}" alt class="saved-img">
+//               </article>`;
+//   });
+//   document.querySelector('.saved-gallery').innerHTML = strHTML;
+// }

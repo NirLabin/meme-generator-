@@ -171,10 +171,13 @@ function onToggleMenu() {
   document.body.classList.toggle('menu-open');
 }
 
-function onOpenModal() {
-  modal.classList.remove('hidden');
-}
+// function onOpenModal() {
+//   modal.classList.remove('hidden');
+// }
 
-function onCloseModal() {
-  modal.classList.add('hidden');
+// function onCloseModal() {
+//   modal.classList.add('hidden');
+// }
+function toggleModal() {
+  document.body.classList.toggle('modal-open');
 }

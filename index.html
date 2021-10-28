@@ -8,7 +8,7 @@
     <title>Meme Generator</title>
   </head>
   <body onload="init()">
-    <div class="main-screen" onclick="onToggleMenu()"></div>
+    <div class="main-screen" onclick="toggleModal()"></div>
 
     <header class="main-header">
       <div class="logo-head">
@@ -44,7 +44,7 @@
             >
           </li>
           <li class="about-btn">
-            <a href="#" onclick="onOpenModal()" class="about-nav">About</a>
+            <a href="#" onclick="toggleModal()" class="about-nav">About</a>
           </li>
         </ul>
       </nav>
@@ -165,11 +165,11 @@
         <h1>Under construction 🔨</h1>
         <div class="saved-gallery img-gallery"></div>
       </section>
-      <div class="modal hidden">
+      <div class="modal">
         <h1>WELCOME! to MEME GENERATOR</h1>
         <p>Here you can do your own meme , so let's start!</p>
         <p>provided by NIR LABINSKi</p>
-        <button class="close-modal" onclick="onCloseModal()">Close</button>
+        <button class="close-modal" onclick="toggleModal()">Close</button>
       </div>
     </main>
 

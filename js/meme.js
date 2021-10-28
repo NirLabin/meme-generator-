@@ -166,6 +166,9 @@ function onDownloadMeme(elLink) {
   elLink.download = 'MEME';
 }
 
+function onToggleMenu() {
+  document.body.classList.toggle('menu-open');
+}
 // function onSaveMeme() {
 //   saveMeme();
 // }

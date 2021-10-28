@@ -23,13 +23,16 @@ a {
 
 img {
   width: 100%;
-  transition: transform 0.5s;
+  transition: all 0.5s;
 }
 
 img:hover {
-  transform: scale(0.8);
-  transition: 1s ease;
-  border: #ff9826 2px solid;
+  box-shadow: #000000 5px 20px 30px -10px;
+  transform: scale(1.125);
+}
+
+.btn-menu {
+  display: none;
 }
 
 .main-layout {
@@ -292,7 +295,7 @@ img:hover {
 /* MEDIA QUERIES */
 
 @media (max-width: 500px) {
-  body .main-nav {
+  .main-nav {
     position: fixed;
     left: 0;
     top: 0;
@@ -304,6 +307,29 @@ img:hover {
     font-size: 1.5rem;
     transform: translateX(100%);
     transition: transform 0.4s;
+  }
+
+  .btn-menu {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+  }
+
+  body.menu-open .main-nav {
+    transform: translateX(0);
+    visibility: visible;
+    flex-direction: column;
+    position: fixed;
+    background-color: #3a3a3a;
+    right: 0;
+  }
+  body.menu-open .main-screen {
+    pointer-events: auto;
+    opacity: 1;
   }
 
   .main-header .main-nav > *:not(:last-child) {
@@ -331,7 +357,6 @@ img:hover {
 }
 
 @media (max-width: 768px) {
-  /* mains editor cont */
   .main-editor-container {
     flex-direction: column;
   }

@@ -3,6 +3,8 @@
 var gCanvas;
 var gCtx;
 
+const modal = document.querySelector('.modal');
+
 function init() {
   gCanvas = document.querySelector('canvas');
   gCtx = gCanvas.getContext('2d');
@@ -10,7 +12,6 @@ function init() {
   renderGallery(images);
   resetMeme();
   drawMeme();
-  // renderSavedMemes();
 }
 
 function renderGallery(imgs) {
@@ -168,4 +169,12 @@ function onDownloadMeme(elLink) {
 
 function onToggleMenu() {
   document.body.classList.toggle('menu-open');
+}
+
+function onOpenModal() {
+  modal.classList.remove('hidden');
+}
+
+function onCloseModal() {
+  modal.classList.add('hidden');
 }

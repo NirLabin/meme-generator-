@@ -223,3 +223,13 @@ function alignText(direction, canvasWidth) {
   gMeme.lines[idx].align = direction;
   gMeme.lines[idx].pos.x = posX;
 }
+
+function changeFillColor(color) {
+  let idx = getSelectedLineIdx();
+  gMeme.lines[idx].fillColor = color;
+}
+
+function changeStrokeColor(color) {
+  let idx = getSelectedLineIdx();
+  gMeme.lines[idx].strokeColor = color;
+}

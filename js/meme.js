@@ -2,6 +2,7 @@
 
 var gCanvas;
 var gCtx;
+var gStartPos;
 
 function init() {
   gCanvas = document.querySelector('canvas');
@@ -127,5 +128,15 @@ function onFontSizeDown() {
 
 function onAlignText(direction) {
   alignText(direction, gCanvas.width);
+  drawMeme();
+}
+
+function onChangeStroke(color) {
+  changeStrokeColor(color);
+  drawMeme();
+}
+
+function onChangeFill(color) {
+  changeFillColor(color);
   drawMeme();
 }

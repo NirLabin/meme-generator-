@@ -111,6 +111,24 @@
                 oninput="onTextChange(this)"
               />
             </div>
+            <div class="control-row flex align-center">
+              <label for="color" name="stroke">Stroke </label>
+              <input
+                class="text-storke-color"
+                type="color"
+                name="stroke"
+                value="#ffffff"
+                onchange="onChangeStroke(this.value)"
+              />
+              <label for="color" name="fill">Fill </label>
+              <input
+                class="text-fill-color"
+                type="color"
+                name="fill"
+                value="#111111"
+                onchange="onChangeFill(this.value)"
+              />
+            </div>
           </div>
           <div class="share-container">
             <button class="save-btn" onclick="onSaveMeme()">Save</button>

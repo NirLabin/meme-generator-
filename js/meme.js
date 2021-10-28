@@ -169,23 +169,3 @@ function onDownloadMeme(elLink) {
 function onToggleMenu() {
   document.body.classList.toggle('menu-open');
 }
-// function onSaveMeme() {
-//   saveMeme();
-// }
-
-// function renderSavedMemes() {
-//   const savedMemes = getSavedMemes();
-//   console.log(savedMemes);
-//   const savedMemesGallery = document.querySelector('.saved-gallery');
-//   if (!savedMemes || !savedMemes.length) {
-//     return (savedMemesGallery.innerHTML =
-//       '<h2 class="saved-empty-text">You have no saved memes</h2>');
-//   }
-//   var strHTML = '';
-//   savedMemes.forEach((meme, idx) => {
-//     strHTML += `<article data-imgId="${idx}" class="saved-meme">
-//                   <img src="${meme.dataUrl}" alt class="saved-img">
-//               </article>`;
-//   });
-//   document.querySelector('.saved-gallery').innerHTML = strHTML;
-// }

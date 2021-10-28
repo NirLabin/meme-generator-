@@ -234,20 +234,3 @@ function changeFont(newFont) {
   const idx = getSelectedLineIdx();
   gMeme.lines[idx].font = newFont;
 }
-
-// function saveMeme() {
-//   let memes = [];
-//   memes.push(gMeme);
-//   console.log(gMeme);
-//   gSavedMemes = memes;
-//   console.log(memes);
-//   saveMemeToStorage();
-// }
-
-// function saveMemeToStorage() {
-//   saveToStorage(KEY_MEME, gSavedMemes);
-// }
-
-// function getSavedMemes() {
-//   return gSavedMemes;
-// }

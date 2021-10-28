@@ -50,15 +50,15 @@
       </section>
       <!-- Editor -->
       <section class="page-section main-editor-container hidden">
-        <article class="flex column center align-center">
+        <article class="canvas-center flex column center align-center">
           <div class="canvas-container">
             <canvas class="meme-canvas" height="450" width="450"></canvas>
           </div>
         </article>
         <article class="editor-container">
-          <h2>Create Meme</h2>
           <div class="text-editor-cont">
             <div class="line-container flex align-center space-between">
+              <h2>Create Meme</h2>
               <ul
                 class="
                   line-btns-container
@@ -68,25 +68,14 @@
                   space-between
                 "
               >
-                <li class="btn-addLine" onclick="onAddLine()">➕</li>
-                <li class="btn-switchLine" onclick="onSwitchLine()">🔃</li>
-                <li class="btn-lineUp" onclick="onLineUp()">⬆</li>
-                <li class="btn-lineDown" onclick="onLineDown()">⬇</li>
-                <li class="btn-removeLine" onclick="onRemoveLine()">🗑</li>
-                <li class="btn-fontSizeUp" onclick="onFontSizeUp()">A</li>
-                <li class="btn-fontSizeDown" onclick="onFontSizeDown()">a</li>
-                <li class="btn-alignTextRight" onclick="onAlignText('right')">
-                  ➡️
-                </li>
-                <li class="btn-alignTextLeft" onclick="onAlignText('left')">
-                  ⬅
-                </li>
-                <li class="btn-alignTextMiddle" onclick="onAlignText('center')">
-                  ↕️
-                </li>
+                <li class="btn-addLine" onclick="onAddLine()"></li>
+                <li class="btn-switchLine" onclick="onSwitchLine()"></li>
+                <li class="btn-lineUp" onclick="onLineUp()"></li>
+                <li class="btn-lineDown" onclick="onLineDown()"></li>
+                <li class="btn-removeLine" onclick="onRemoveLine()"></li>
               </ul>
             </div>
-            <div class="texts-container">
+            <div class="texts-container flex column">
               <ul
                 class="
                   texts-btns-container
@@ -103,6 +92,36 @@
                 >
                   <option value="Impact">Impact</option>
                 </select>
+                <li class="btn-fontSizeUp" onclick="onFontSizeUp()"></li>
+                <li class="btn-fontSizeDown" onclick="onFontSizeDown()"></li>
+                <li
+                  class="btn-alignTextRight"
+                  onclick="onAlignText('right')"
+                ></li>
+                <li
+                  class="btn-alignTextLeft"
+                  onclick="onAlignText('left')"
+                ></li>
+                <li
+                  class="btn-alignTextCenter"
+                  onclick="onAlignText('center')"
+                ></li>
+                <label for="color" name="stroke">Stroke </label>
+                <input
+                  class="text-storke-color"
+                  type="color"
+                  name="stroke"
+                  value="#ffffff"
+                  onchange="onChangeStroke(this.value)"
+                />
+                <label for="color" name="fill">Fill </label>
+                <input
+                  class="text-fill-color"
+                  type="color"
+                  name="fill"
+                  value="#111111"
+                  onchange="onChangeFill(this.value)"
+                />
               </ul>
               <input
                 type="text"
@@ -111,32 +130,15 @@
                 oninput="onTextChange(this)"
               />
             </div>
-            <div class="control-row flex align-center">
-              <label for="color" name="stroke">Stroke </label>
-              <input
-                class="text-storke-color"
-                type="color"
-                name="stroke"
-                value="#ffffff"
-                onchange="onChangeStroke(this.value)"
-              />
-              <label for="color" name="fill">Fill </label>
-              <input
-                class="text-fill-color"
-                type="color"
-                name="fill"
-                value="#111111"
-                onchange="onChangeFill(this.value)"
-              />
-            </div>
           </div>
-          <div class="share-container">
-            <button class="save-btn" onclick="onSaveMeme()">Save</button>
-            <button class="donwload-btn">
+          <div class="share-container align-center flex space-between">
+            <button class="btn-save" onclick="onSaveMeme()">Save</button>
+            <button class="btn-download">
               <a href="#" onclick="onDownloadMeme(this)" download="file-name"
                 >Download</a
               >
             </button>
+            <button class="btn-share">Share</button>
           </div>
         </article>
       </section>

@@ -108,10 +108,9 @@ img {
 
 /* Editor */
 .main-editor-container {
+  position: relative;
   display: flex;
   height: 100%;
-  position: relative;
-  justify-content: space-around;
 }
 
 .meme-canvas {
@@ -119,9 +118,15 @@ img {
   margin-top: 50px;
 }
 
+.canvas-center {
+  flex-grow: 1.7;
+}
+
 .editor-container {
+  position: relative;
   background-color: #f8f8f8;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: space-between;
   padding: 1.875rem 1.875rem 0 1.875rem;
@@ -130,9 +135,15 @@ img {
 .line-container {
   padding-bottom: 1.3rem;
 }
+.editor-container h2 {
+  flex-grow: 1;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #727272;
+}
 
 .line-btns-container {
-  flex-grow: 1;
+  flex-grow: 2;
   font-family: awesome;
   flex-wrap: wrap;
 }
@@ -142,17 +153,107 @@ img {
   font-family: awesome;
 }
 
+.btn-addLine::after {
+  content: '\f0fe';
+}
+
+.btn-switchLine::after {
+  content: '\f362';
+}
+
+.btn-lineUp::after {
+  content: '\f062';
+}
+
+.btn-lineDown::after {
+  content: '\f063';
+}
+
+.btn-removeLine::after {
+  content: '\f2ed';
+}
+
 .line-btns-container > * {
   cursor: pointer;
-  width: 50px;
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.font-btns-container {
-  flex-grow: 1;
+.line-btns-container > *:not(:last-child) {
+  padding-right: 10px;
+}
+
+.texts-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.texts-btns-container {
+  border-bottom: 2px solid #dedede;
   font-family: awesome;
+}
+
+.texts-btns-container .selectFonts {
+  color: #989898;
+  border: 1px solid #ebebeb;
+}
+
+.texts-btns-container > * {
+  cursor: pointer;
+}
+
+.btn-fontSizeUp::after {
+  content: '\f102';
+}
+
+.btn-fontSizeDown::after {
+  content: '\f103';
+}
+
+.btn-alignTextRight::after {
+  content: '\f038';
+}
+
+.btn-alignTextLeft::after {
+  content: '\f036';
+}
+
+.btn-alignTextCenter::after {
+  content: '\f037';
+}
+
+.text-storke-color::after {
+  content: '\f53f';
+}
+
+.text-fill-color::after {
+  content: '\f576';
+}
+
+.meme-text-input {
+  color: #989898;
+  border: none;
+  border-radius: 30px;
+  padding: 1.25rem;
+  outline: none;
+}
+
+.share-container {
+  padding-bottom: 1.875rem;
+  gap: 50px;
+}
+
+.share-container > button {
+  background-color: #ff9826;
+  color: white;
+  flex-grow: 1;
+  flex-basis: 0;
+  height: 3.1rem;
+  border-radius: 25px;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 /* Helpers */
 

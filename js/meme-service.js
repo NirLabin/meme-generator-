@@ -89,7 +89,7 @@ function updateImgId(imgId) {
   gMeme.selectedImgId = +imgId;
 }
 
-function getImgURL() {
+function getImgUrl() {
   var imgId = +gMeme.selectedImgId;
   var img = gImages.find(({ id }) => id === imgId);
   return img.url;
@@ -148,6 +148,7 @@ function getLinesNum() {
 function addLine() {
   var newLine = _createLine();
   gMeme.lines.push(newLine);
+  console.log(gMeme);
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
 }
 
@@ -176,4 +177,16 @@ function _createLine() {
       y: getRandomInt(40, 450),
     },
   };
+}
+
+function textUp() {
+  var idx = getSelectedLineIdx();
+  if (gMeme.lines[idx].pos.y < 40) return;
+  gMeme.lines[idx].pos.y += -5;
+}
+
+function textDown() {
+  var idx = getSelectedLineIdx();
+  if (gMeme.lines[idx].pos.y > 450) return;
+  gMeme.lines[idx].pos.y += 5;
 }

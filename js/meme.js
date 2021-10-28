@@ -53,7 +53,7 @@ function onMemeClicked(el) {
 }
 
 function drawMeme() {
-  var memeImg = getImgURL();
+  var memeImg = getImgUrl();
   var img = new Image();
   img.src = memeImg;
   img.onload = () => {
@@ -103,4 +103,14 @@ function onRemoveLine() {
 
 function onSwitchLine() {
   switchLine();
+}
+
+function onTextUp() {
+  textUp();
+  drawMeme();
+}
+
+function onTextDown() {
+  textDown();
+  drawMeme();
 }

@@ -49,8 +49,6 @@ function openSection(page) {
 function onMemeClicked(el) {
   var memeId = el.dataset.imgid;
   updateImgId(memeId);
-  gMeme.lines[0].txt = 'make a meme';
-  gMeme.lines.splice(1);
   clearTextInput();
   drawMeme();
   openSection('editor');
@@ -153,6 +151,11 @@ function onChangeStroke(color) {
 
 function onChangeFill(color) {
   changeFillColor(color);
+  drawMeme();
+}
+
+function onChangeFont(font) {
+  changeFont(font);
   drawMeme();
 }
 

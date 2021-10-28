@@ -217,7 +217,6 @@ function alignText(direction, canvasWidth) {
       break;
   }
   let idx = getSelectedLineIdx();
-  console.log(gMeme.lines[idx].align);
   gMeme.lines[idx].align = direction;
   gMeme.lines[idx].pos.x = posX;
 }
@@ -230,4 +229,9 @@ function changeFillColor(color) {
 function changeStrokeColor(color) {
   let idx = getSelectedLineIdx();
   gMeme.lines[idx].strokeColor = color;
+}
+
+function changeFont(newFont) {
+  const idx = getSelectedLineIdx();
+  gMeme.lines[idx].font = newFont;
 }

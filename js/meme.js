@@ -105,12 +105,27 @@ function onSwitchLine() {
   switchLine();
 }
 
-function onTextUp() {
-  textUp();
+function onLineUp() {
+  lineUp();
   drawMeme();
 }
 
-function onTextDown() {
-  textDown();
+function onLineDown() {
+  lineDown(gCanvas.width);
+  drawMeme();
+}
+
+function onFontSizeUp() {
+  fontSizeUp();
+  drawMeme();
+}
+
+function onFontSizeDown() {
+  fontSizeDown();
+  drawMeme();
+}
+
+function onAlignText(direction) {
+  alignText(direction, gCanvas.width);
   drawMeme();
 }

@@ -58,17 +58,44 @@
         <article class="editor-container">
           <h2>Create Meme</h2>
           <div class="text-editor-cont">
-            <div class="line-container">
-              <ul class="line-btns-container clean-list">
+            <div class="line-container flex align-center space-between">
+              <ul
+                class="
+                  line-btns-container
+                  clean-list
+                  flex
+                  align-center
+                  space-between
+                "
+              >
                 <li class="btn-addLine" onclick="onAddLine()">➕</li>
                 <li class="btn-switchLine" onclick="onSwitchLine()">🔃</li>
-                <li class="btn-textUp" onclick="onTextUp()">⬆</li>
-                <li class="btn-textDown" onclick="onTextDown()">⬇</li>
+                <li class="btn-lineUp" onclick="onLineUp()">⬆</li>
+                <li class="btn-lineDown" onclick="onLineDown()">⬇</li>
                 <li class="btn-removeLine" onclick="onRemoveLine()">🗑</li>
+                <li class="btn-fontSizeUp" onclick="onFontSizeUp()">A</li>
+                <li class="btn-fontSizeDown" onclick="onFontSizeDown()">a</li>
+                <li class="btn-alignTextRight" onclick="onAlignText('right')">
+                  ➡️
+                </li>
+                <li class="btn-alignTextLeft" onclick="onAlignText('left')">
+                  ⬅
+                </li>
+                <li class="btn-alignTextMiddle" onclick="onAlignText('center')">
+                  ↕️
+                </li>
               </ul>
             </div>
             <div class="texts-container">
-              <ul class="texts-btn-container clean-list">
+              <ul
+                class="
+                  texts-btns-container
+                  clean-list
+                  flex
+                  align-center
+                  space-between
+                "
+              >
                 <select
                   name="fonts"
                   class="select-fonts"

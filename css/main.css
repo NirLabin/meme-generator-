@@ -5,6 +5,11 @@
   src: url(../fonts/impact/impact.ttf);
 }
 
+@font-face {
+  font-family: awesome;
+  src: url(../fonts/fontawesome/fa-solid-900.ttf);
+}
+
 html {
   font-family: sans-serif;
   color: #989898;
@@ -109,12 +114,9 @@ img {
   justify-content: space-around;
 }
 
-.canvas-container {
-  flex-grow: 2;
-}
-
 .meme-canvas {
   border-radius: 10px;
+  margin-top: 50px;
 }
 
 .editor-container {
@@ -126,27 +128,32 @@ img {
 }
 
 .line-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding-bottom: 1.3rem;
 }
 
 .line-btns-container {
-  flex-grow: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-grow: 1;
+  font-family: awesome;
+  flex-wrap: wrap;
+}
+
+.text-btns-container {
+  flex-grow: 1;
+  font-family: awesome;
 }
 
 .line-btns-container > * {
   cursor: pointer;
-  width: 20px;
+  width: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.font-btns-container {
+  flex-grow: 1;
+  font-family: awesome;
+}
 /* Helpers */
 
 .flex {

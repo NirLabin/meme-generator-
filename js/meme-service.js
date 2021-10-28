@@ -41,7 +41,7 @@ const gImages = [
   {
     id: 10,
     url: 'img/meme/10.jpg',
-    keywords: [, 'obama', 'laugh', 'president'],
+    keywords: ['politic', 'obama', 'laugh', 'president'],
   },
   {
     id: 11,
@@ -127,8 +127,8 @@ function resetMeme() {
 
 function filterByName(inputVal) {
   const images = gImages;
-  var filteredImages = images.filter((img) => {
-    var keyWordArr = img.keywords.filter((keyword) => {
+  const filteredImages = images.filter((img) => {
+    let keyWordArr = img.keywords.filter((keyword) => {
       return keyword.toLowerCase().startsWith(inputVal);
     });
     if (keyWordArr.length) return true;
@@ -146,7 +146,7 @@ function getLinesNum() {
 }
 
 function addLine() {
-  var newLine = _createLine();
+  const newLine = _createLine();
   gMeme.lines.push(newLine);
   console.log(gMeme);
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
@@ -158,8 +158,8 @@ function removeLine(idx) {
 }
 
 function switchLine() {
-  var idx = getSelectedLineIdx();
-  var linesNum = getLinesNum();
+  let idx = getSelectedLineIdx();
+  let linesNum = getLinesNum();
   idx = idx === linesNum - 1 ? 0 : ++idx;
   gMeme.selectedLineIdx = idx;
 }
@@ -179,14 +179,47 @@ function _createLine() {
   };
 }
 
-function textUp() {
-  var idx = getSelectedLineIdx();
-  if (gMeme.lines[idx].pos.y < 40) return;
+function lineUp() {
+  let idx = getSelectedLineIdx();
+  console.log(gMeme.lines[idx].pos.y);
+  if (!gMeme.lines[idx].pos.y) return;
   gMeme.lines[idx].pos.y += -5;
 }
 
-function textDown() {
-  var idx = getSelectedLineIdx();
-  if (gMeme.lines[idx].pos.y > 450) return;
+function lineDown(canvasWidth) {
+  let idx = getSelectedLineIdx();
+  if (gMeme.lines[idx].pos.y > canvasWidth) return;
   gMeme.lines[idx].pos.y += 5;
+}
+
+function fontSizeUp() {
+  let idx = getSelectedLineIdx();
+  gMeme.lines[idx].size += 5;
+}
+
+function fontSizeDown() {
+  let idx = getSelectedLineIdx();
+  gMeme.lines[idx].size += -5;
+}
+
+function alignText(direction, canvasWidth) {
+  let posX;
+  switch (direction) {
+    case 'left':
+      posX = 10;
+      break;
+    case 'center':
+      posX = canvasWidth / 2;
+      break;
+    case 'right':
+      posX = canvasWidth;
+      break;
+
+    default:
+      break;
+  }
+  let idx = getSelectedLineIdx();
+  console.log(gMeme.lines[idx].align);
+  gMeme.lines[idx].align = direction;
+  gMeme.lines[idx].pos.x = posX;
 }

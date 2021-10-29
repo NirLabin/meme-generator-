@@ -1,7 +1,7 @@
 'use strict';
 
 function uploadImg() {
-  const imgDataUrl = gElCanvas.toDataURL('image/jpeg');
+  const imgDataUrl = gCanvas.toDataURL('image/jpeg');
 
   function onSuccess(uploadedImgUrl) {
     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);

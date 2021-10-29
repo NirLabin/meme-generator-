@@ -191,6 +191,10 @@ img {
   color: #727272;
 }
 
+.line-btns-container > li:hover {
+  color: #414141;
+}
+
 .line-btns-container {
   flex-grow: 2;
   font-family: awesome;
@@ -253,6 +257,10 @@ img {
 .texts-btns-container > * {
   cursor: pointer;
 }
+
+/* .text-btns-container > *:hover {
+  color: #da0707;
+} */
 
 .btn-fontSizeUp::after {
   content: '\f031';

@@ -2,6 +2,7 @@
 
 const KEY_MEME = 'meme';
 var gMeme;
+var gLine;
 var gSavedMemes;
 
 const gImages = [
@@ -110,12 +111,13 @@ function resetMeme(memeId = 1) {
     dataUrl: undefined,
     lines: [
       {
-        txt: '',
+        txt: 'Meme here',
         size: 40,
         align: 'center',
         strokeColor: '#000000',
         fillColor: '#ffffff',
         font: 'Impact',
+        isDrag: false,
         pos: {
           x: 225,
           y: 50,
@@ -155,6 +157,7 @@ function removeLine(idx) {
 }
 
 function switchLine() {
+  console.log(gMeme);
   let idx = getSelectedLineIdx();
   let linesNum = getLinesNum();
   idx = idx === linesNum - 1 ? 0 : ++idx;
@@ -169,6 +172,7 @@ function _createLine() {
     strokeColor: '#000000',
     fillColor: '#ffffff',
     font: 'Impact',
+    isDrag: false,
     pos: {
       x: 225,
       y: getRandomInt(40, 450),
@@ -233,4 +237,32 @@ function changeStrokeColor(color) {
 function changeFont(newFont) {
   const idx = getSelectedLineIdx();
   gMeme.lines[idx].font = newFont;
+}
+
+function setLineDrag(isDrag, idx) {
+  gMeme.lines[idx].isDrag = isDrag;
+  console.log(gMeme.lines[idx].isDrag);
+}
+
+function isLineClicked(clickedPos, idx) {
+  const pos = gMeme.lines[idx].pos;
+  let textSize = gCtx.measureText(gMeme.lines[idx].txt);
+  let leftSideText = textSize.actualBoundingBoxLeft;
+  let rightSideText = textSize.actualBoundingBoxRight;
+  console.log(gMeme.lines[idx].size);
+  return (
+    clickedPos.x >= pos.x - leftSideText &&
+    clickedPos.x <= pos.x + rightSideText &&
+    clickedPos.y <= pos.y &&
+    clickedPos.y >= pos.y - gMeme.lines[idx].size
+  );
+}
+function getLine() {
+  var idx = getSelectedLineIdx();
+  return gMeme.lines[idx];
+}
+
+function moveLine(line, dx, dy) {
+  line.pos.x += dx;
+  line.pos.y += dy;
 }

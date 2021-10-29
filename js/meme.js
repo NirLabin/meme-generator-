@@ -2,12 +2,16 @@
 
 var gCanvas;
 var gCtx;
+var gStartPos;
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 
 const modal = document.querySelector('.modal');
 
 function init() {
   gCanvas = document.querySelector('canvas');
   gCtx = gCanvas.getContext('2d');
+  addMouseListeners();
+  addTouchListeners();
   var images = getImgs();
   renderGallery(images);
   resetMeme();
@@ -171,13 +175,61 @@ function onToggleMenu() {
   document.body.classList.toggle('menu-open');
 }
 
-// function onOpenModal() {
-//   modal.classList.remove('hidden');
-// }
-
-// function onCloseModal() {
-//   modal.classList.add('hidden');
-// }
 function toggleModal() {
   document.body.classList.toggle('modal-open');
+}
+
+function addMouseListeners() {
+  gCanvas.addEventListener('mousemove', onMove);
+  gCanvas.addEventListener('mousedown', onDown);
+  gCanvas.addEventListener('mouseup', onUp);
+}
+
+function addTouchListeners() {
+  gCanvas.addEventListener('touchmove', onMove);
+  gCanvas.addEventListener('touchstart', onDown);
+  gCanvas.addEventListener('touchend', onUp);
+}
+
+function getEvPos(ev) {
+  var pos = {
+    x: ev.offsetX,
+    y: ev.offsetY,
+  };
+  if (gTouchEvs.includes(ev.type)) {
+    ev.preventDefault();
+    ev = ev.changedTouches[0];
+    pos = {
+      x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+      y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+    };
+  }
+  return pos;
+}
+
+function onDown(ev) {
+  const pos = getEvPos(ev);
+  let idx = getSelectedLineIdx();
+  if (!isLineClicked(pos, idx)) return;
+  setLineDrag(true, idx);
+  gStartPos = pos;
+  document.body.style.cursor = 'grabbing';
+}
+
+function onMove(ev) {
+  const line = getLine();
+  if (line.isDrag) {
+    const pos = getEvPos(ev);
+    const dx = pos.x - gStartPos.x;
+    const dy = pos.y - gStartPos.y;
+    gStartPos = pos;
+    moveLine(line, dx, dy);
+    drawMeme();
+  }
+}
+
+function onUp() {
+  let idx = getSelectedLineIdx();
+  setLineDrag(false, idx);
+  document.body.style.cursor = 'grab';
 }

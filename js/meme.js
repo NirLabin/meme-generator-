@@ -213,10 +213,11 @@ function onDown(ev) {
   if (!isLineClicked(pos, idx)) return;
   setLineDrag(true, idx);
   gStartPos = pos;
-  document.body.style.cursor = 'grabbing';
+  document.querySelector('.meme-canvas').style.cursor = 'grabbing';
 }
 
 function onMove(ev) {
+  if (!gMeme.lines.length) return;
   const line = getLine();
   if (line.isDrag) {
     const pos = getEvPos(ev);
@@ -231,5 +232,17 @@ function onMove(ev) {
 function onUp() {
   let idx = getSelectedLineIdx();
   setLineDrag(false, idx);
-  document.body.style.cursor = 'grab';
+  document.querySelector('.meme-canvas').style.cursor = 'grab';
+}
+
+function onSetLang(lang) {
+  setLang(lang);
+  var elBody = document.querySelector('body');
+  if (lang === 'he') {
+    elBody.classList.add('rtl');
+  } else {
+    elBody.classList.remove('rtl');
+  }
+  doTrans();
+  // render();
 }

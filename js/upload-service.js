@@ -1,7 +1,5 @@
-'use strict';
-
 function uploadImg() {
-  const imgDataUrl = gCanvas.toDataURL('image/jpeg');
+  const imgDataUrl = gCanvas.toDataURL('image/png');
 
   function onSuccess(uploadedImgUrl) {
     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);

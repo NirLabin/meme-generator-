@@ -29,6 +29,10 @@ img {
   transition: all 0.5s;
 }
 
+body.rtl {
+  direction: rtl;
+}
+
 .img-gallery img:hover {
   box-shadow: #000000 5px 20px 30px -10px;
   transform: scale(1.125);
@@ -363,9 +367,9 @@ img {
   }
 
   .btn-close-menu {
+    color: #f85555;
     display: block;
     font-size: 1.4rem;
-    background-color: #f85555;
   }
 
   body.menu-open .main-nav {
@@ -377,7 +381,6 @@ img {
     right: 0;
   }
   body.menu-open .main-screen {
-    display: block;
     opacity: 1;
   }
 

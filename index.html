@@ -22,6 +22,7 @@
           <li>
             <a
               href="#"
+              data-trans="gallery"
               onclick="openSection('gallery') , onToggleMenu()"
               class="gallery-nav"
               >Gallery</a
@@ -30,6 +31,7 @@
           <li>
             <a
               href="#"
+              data-trans="editor"
               onclick="openSection('editor') , onToggleMenu()"
               class="editor-nav"
               >Editor</a
@@ -38,13 +40,26 @@
           <li class="saved-btn">
             <a
               href="#"
+              data-trans="memes"
               onclick="openSection('saved') ,onToggleMenu()"
               class="saved-nav"
-              >Saved</a
+              >Memes</a
             >
           </li>
           <li class="about-btn">
-            <a href="#" onclick="toggleModal()" class="about-nav">About</a>
+            <a
+              href="#"
+              data-trans="about"
+              onclick="toggleModal()"
+              class="about-nav"
+              >About</a
+            >
+          </li>
+          <li>
+            <select onchange="onSetLang(this.value)">
+              <option value="en">English</option>
+              <option value="he">עברית</option>
+            </select>
           </li>
         </ul>
       </nav>
@@ -73,7 +88,7 @@
         <article class="editor-container">
           <div class="text-editor-cont">
             <div class="line-container flex align-center space-between">
-              <h2>Create Meme</h2>
+              <h2 data-trans="create-meme">Create Meme</h2>
               <ul
                 class="
                   line-btns-container
@@ -125,7 +140,9 @@
                   onclick="onAlignText('center')"
                 ></li>
                 |
-                <label for="color" name="stroke">Stroke </label>
+                <label for="color" data-trans="stroke" name="stroke"
+                  >Stroke
+                </label>
                 <input
                   class="text-storke-color"
                   type="color"
@@ -133,7 +150,7 @@
                   value="#ffffff"
                   onchange="onChangeStroke(this.value)"
                 />
-                <label for="color" name="fill">Fill </label>
+                <label for="color" data-trans="fill" name="fill">Fill </label>
                 <input
                   class="text-fill-color"
                   type="color"
@@ -144,6 +161,7 @@
               </ul>
               <input
                 type="text"
+                data-trans="Enter-text"
                 class="meme-text-input"
                 placeholder="Enter text"
                 oninput="onTextChange(this)"
@@ -151,13 +169,19 @@
             </div>
           </div>
           <div class="share-container align-center flex space-between">
-            <button class="btn-save" onclick="onSaveMeme()">Save</button>
+            <button data-trans="save" class="btn-save" onclick="onSaveMeme()">
+              Save
+            </button>
             <button class="btn-download">
-              <a href="#" onclick="onDownloadMeme(this)" download="file-name"
+              <a
+                href="#"
+                data-trans="download"
+                onclick="onDownloadMeme(this)"
+                download="file-name"
                 >Download</a
               >
             </button>
-            <button class="btn-share">Share</button>
+            <button data-trans="share" class="btn-share">Share</button>
           </div>
         </article>
       </section>
@@ -177,5 +201,6 @@
     <script src="js/storage-service.js"></script>
     <script src="js/meme.js"></script>
     <script src="js/meme-service.js"></script>
+    <script src="js/i18n-service.js"></script>
   </body>
 </html>

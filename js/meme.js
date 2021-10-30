@@ -98,8 +98,8 @@ function onTextChange(el) {
   drawMeme();
 }
 
-function onAddLine() {
-  addLine();
+function onAddLine(txt) {
+  addLine(txt);
   drawMeme();
   clearTextInput();
 }
@@ -162,6 +162,11 @@ function onChangeFill(color) {
 
 function onChangeFont(font) {
   changeFont(font);
+  drawMeme();
+}
+
+function onAddSticker(txt) {
+  addSticker(txt);
   drawMeme();
 }
 
@@ -244,5 +249,4 @@ function onSetLang(lang) {
     elBody.classList.remove('rtl');
   }
   doTrans();
-  // render();
 }

@@ -205,11 +205,6 @@ body.rtl {
   flex-wrap: wrap;
 }
 
-.text-btns-container {
-  flex-grow: 1;
-  font-family: awesome;
-}
-
 .btn-addLine::after {
   content: '\f0fe';
 }
@@ -249,6 +244,7 @@ body.rtl {
 }
 
 .texts-btns-container {
+  flex-grow: 1;
   border-bottom: 2px solid #dedede;
   font-family: awesome;
 }
@@ -259,6 +255,21 @@ body.rtl {
 }
 
 .texts-btns-container > * {
+  cursor: pointer;
+}
+
+.sticker-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+.sticker-btns-container {
+  flex-grow: 1;
+  font-size: 2.5rem;
+}
+
+.sticker-btns-container > * {
   cursor: pointer;
 }
 

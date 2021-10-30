@@ -145,11 +145,10 @@ function getLinesNum() {
   return gMeme.lines.length;
 }
 
-function addLine() {
-  const newLine = _createLine();
+function addLine(txt) {
+  const newLine = _createLine(txt);
   gMeme.lines.push(newLine);
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
-  console.log(gMeme.selectedLineIdx);
 }
 
 function removeLine(idx) {
@@ -165,9 +164,9 @@ function switchLine() {
   gMeme.selectedLineIdx = idx;
 }
 
-function _createLine() {
+function _createLine(txt = 'Add text here') {
   return {
-    txt: 'Add text here',
+    txt,
     size: 40,
     align: 'center',
     strokeColor: '#000000',
@@ -269,4 +268,8 @@ function getLine() {
 function moveLine(line, dx, dy) {
   line.pos.x += dx;
   line.pos.y += dy;
+}
+
+function addSticker(txt) {
+  addLine(txt);
 }

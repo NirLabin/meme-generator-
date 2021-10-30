@@ -19,7 +19,7 @@ var gTrans = {
   },
   'create-meme': {
     en: 'Create Meme',
-    he: 'ערוך מימ',
+    he: 'ערוך',
   },
   stroke: {
     en: 'Stroke',
@@ -48,6 +48,10 @@ var gTrans = {
   remove: {
     en: 'Remove',
     he: 'מחק',
+  },
+  upload: {
+    en: 'MEME your photo',
+    he: 'העלה תמונה משלך',
   },
 };
 

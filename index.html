@@ -75,11 +75,10 @@
             placeholder="Search by subject"
             oninput="onSearchByName(this.value)"
           />
-          <input
-            type="file"
-            class="file-input-btn"
-            onchange="onImgInput(event)"
-          />
+          <input type="file" id="upload" onchange="onImgInput(event)" hidden />
+          <label data-trans="upload" class="file-btn" for="upload"
+            >MEME your photo</label
+          >
         </article>
         <div class="img-gallery"></div>
       </section>

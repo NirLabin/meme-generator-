@@ -33,14 +33,25 @@ body.rtl {
   direction: rtl;
 }
 
-.file-input-btn::-webkit-file-upload-button {
-  visibility: hidden;
+.file-btn {
+  display: inline-block;
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #ff7e31, #e62c03);
+  color: white;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-left: 20px;
+  transition: box-shadow, color, transform 0.8s;
 }
-.file-input-btn::before {
-  content: 'MEME your photo                  ';
-  user-select: none;
+.file-btn:hover {
+  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+  color: #000000;
+  transform: scale(1.2);
 }
-.file-input-btn,
+
 section button {
   background-color: initial;
   background-image: linear-gradient(-180deg, #ff7e31, #e62c03);
@@ -68,7 +79,7 @@ section button {
 
 section button:hover {
   box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
-  color: #000000;
+  color: #000;
 }
 
 .gallery-container .img-gallery img:hover {

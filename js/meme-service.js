@@ -1,8 +1,6 @@
 'use strict';
-// localStorage.clear();
 const KEY_MEME = 'meme';
 var gMeme;
-var gLine;
 var gSavedMemes = [];
 
 const gImages = [
@@ -91,7 +89,7 @@ function updateImgId(imgId) {
 }
 
 function getImgUrl() {
-  if (isUploadImg) return uploadImg.src;
+  if (isUploadImg) return gUploadImg.src;
   var imgId = +gMeme.selectedImgId;
   var img = gImages.find(({ id }) => id === imgId);
   return img.url;
@@ -158,7 +156,6 @@ function removeLine(idx) {
 }
 
 function switchLine() {
-  console.log(gMeme);
   let idx = getSelectedLineIdx();
   let linesNum = getLinesNum();
   idx = idx === linesNum - 1 ? 0 : ++idx;
@@ -287,6 +284,9 @@ function getSavedMemes() {
 }
 
 function removeSaved(idx) {
-  gSavedMemes.splice(idx, 1);
-  saveToStorage(KEY_MEME, gSavedMemes);
+  var isConfirm = confirm('Are you sure?');
+  if (isConfirm) {
+    gSavedMemes.splice(idx, 1);
+    saveToStorage(KEY_MEME, gSavedMemes);
+  }
 }

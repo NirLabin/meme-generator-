@@ -1,5 +1,5 @@
 'use strict';
-var uploadImg;
+var gUploadImg;
 var isUploadImg = false;
 var gCanvas;
 var gCtx;
@@ -175,7 +175,6 @@ function onAddSticker(txt) {
 }
 
 function onDownloadMeme(elLink) {
-  console.log(elLink);
   const data = gCanvas.toDataURL();
   elLink.href = data;
   elLink.download = 'MEME';
@@ -287,7 +286,6 @@ function onRemoveSaved(idx) {
 }
 
 function onDownloadSave(idx, elLink) {
-  console.log(elLink);
   const data = gSavedMemes[idx].url;
   elLink.href = data;
   elLink.download = 'MEME';
@@ -301,10 +299,10 @@ function loadImageFromInput(ev, onImageReady) {
   var reader = new FileReader();
 
   reader.onload = function (event) {
-    uploadImg = new Image();
-    uploadImg.onload = onImageReady.bind(null, uploadImg);
-    uploadImg.src = event.target.result;
-    drawMeme(uploadImg.src);
+    gUploadImg = new Image();
+    gUploadImg.onload = onImageReady.bind(null, gUploadImg);
+    gUploadImg.src = event.target.result;
+    drawMeme(gUploadImg.src);
   };
   reader.readAsDataURL(ev.target.files[0]);
 }

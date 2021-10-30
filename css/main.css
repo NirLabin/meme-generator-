@@ -192,8 +192,8 @@ section button:hover {
 
 .img-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(195px, 1fr));
   gap: 23px 23px;
 }
 
@@ -312,15 +312,15 @@ section button:hover {
 
 .sticker-btns-container {
   flex-grow: 1;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
 }
 
 .sticker-btns-container > * {
   cursor: pointer;
 }
 
-.text-btns-container > *:hover {
-  background-color: #da0707;
+.text-btn:hover {
+  color: #000;
 }
 
 .btn-fontSizeUp::after {
@@ -354,6 +354,7 @@ section button:hover {
 .share-container {
   padding-bottom: 1.875rem;
   gap: 50px;
+  margin-top: 30px;
 }
 .share-container button {
   width: 100%;

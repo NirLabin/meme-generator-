@@ -33,6 +33,14 @@ body.rtl {
   direction: rtl;
 }
 
+.file-input-btn::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.file-input-btn::before {
+  content: 'MEME your photo                  ';
+  user-select: none;
+}
+.file-input-btn,
 section button {
   background-color: initial;
   background-image: linear-gradient(-180deg, #ff7e31, #e62c03);

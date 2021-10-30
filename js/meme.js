@@ -1,5 +1,6 @@
 'use strict';
-
+var uploadImg;
+var isUploadImg = false;
 var gCanvas;
 var gCtx;
 var gStartPos;
@@ -15,7 +16,7 @@ function init() {
   var images = getImgs();
   renderGallery(images);
   loadSavedMemesFromLocal();
-  renderSaved();
+  renderSavedMemes();
   resetMeme();
   drawMeme();
 }
@@ -55,6 +56,7 @@ function openSection(page) {
 
 function onMemeClicked(el) {
   var memeId = el.dataset.imgid;
+  isUploadImg = false;
   updateImgId(memeId);
   clearTextInput();
   resetMeme(memeId);
@@ -62,7 +64,7 @@ function onMemeClicked(el) {
   openSection('editor');
 }
 
-function drawMeme() {
+function drawMeme(memeImg = getImgUrl()) {
   var memeImg = getImgUrl();
   var img = new Image();
   img.src = memeImg;
@@ -256,12 +258,11 @@ function onSetLang(lang) {
 
 function onSaveMeme() {
   saveMeme();
-  renderSaved();
+  renderSavedMemes();
 }
 
-function renderSaved() {
+function renderSavedMemes() {
   const savedMemes = getSavedMemes();
-  console.log(savedMemes);
   const elSavedGallery = document.querySelector('.saved-gallery');
   if (!savedMemes || !savedMemes.length)
     return (elSavedGallery.innerHTML = '<h2>You have no saved memes</h2>');
@@ -282,7 +283,7 @@ function renderSaved() {
 
 function onRemoveSaved(idx) {
   removeSaved(idx);
-  renderSaved();
+  renderSavedMemes();
 }
 
 function onDownloadSave(idx, elLink) {
@@ -290,4 +291,26 @@ function onDownloadSave(idx, elLink) {
   const data = gSavedMemes[idx].url;
   elLink.href = data;
   elLink.download = 'MEME';
+}
+
+function onImgInput(ev) {
+  loadImageFromInput(ev, renderImg);
+}
+
+function loadImageFromInput(ev, onImageReady) {
+  var reader = new FileReader();
+
+  reader.onload = function (event) {
+    uploadImg = new Image();
+    uploadImg.onload = onImageReady.bind(null, uploadImg);
+    uploadImg.src = event.target.result;
+    drawMeme(uploadImg.src);
+  };
+  reader.readAsDataURL(ev.target.files[0]);
+}
+
+function renderImg(img) {
+  gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+  openSection('editor');
+  isUploadImg = true;
 }

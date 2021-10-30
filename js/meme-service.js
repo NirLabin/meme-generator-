@@ -91,6 +91,7 @@ function updateImgId(imgId) {
 }
 
 function getImgUrl() {
+  if (isUploadImg) return uploadImg.src;
   var imgId = +gMeme.selectedImgId;
   var img = gImages.find(({ id }) => id === imgId);
   return img.url;

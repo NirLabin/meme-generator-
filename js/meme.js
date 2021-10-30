@@ -173,6 +173,7 @@ function onAddSticker(txt) {
 }
 
 function onDownloadMeme(elLink) {
+  console.log(elLink);
   const data = gCanvas.toDataURL();
   elLink.href = data;
   elLink.download = 'MEME';
@@ -263,14 +264,17 @@ function renderSaved() {
   console.log(savedMemes);
   const elSavedGallery = document.querySelector('.saved-gallery');
   if (!savedMemes || !savedMemes.length)
-    return (elSavedGallery.innerHTML =
-      '<h2 class="saved-empty-text">You have no saved memes</h2>');
+    return (elSavedGallery.innerHTML = '<h2>You have no saved memes</h2>');
   var strHTML = '';
   savedMemes.forEach((meme, idx) => {
-    strHTML += `<article data-imgId="${idx}" class="saved-meme">
-                  <img src="${meme.url}" alt class="saved-img">
-                  <button class="download-meme-saved flex space-between " onclick="onDownloadMeme(${idx})">Download</button>
-                  <button class=""remove-saved-btn flex space-between " onclick="onRemoveSaved(${idx})">Remove</button>
+    strHTML += `<article data-imgId="${idx}" class="saved-meme flex column">
+                  <img src="${meme.url}" alt class="saved-img"><button><a
+                  href="#"
+                  data-trans="download"
+                  onclick="onDownloadSave(${idx},this)"
+                  download="file-name"
+                  >Download</a></button>
+                  <button class="flex center" data-trans="remove" onclick="onRemoveSaved(${idx})">Remove</button>
               </article>`;
   });
   document.querySelector('.saved-gallery').innerHTML = strHTML;
@@ -279,4 +283,11 @@ function renderSaved() {
 function onRemoveSaved(idx) {
   removeSaved(idx);
   renderSaved();
+}
+
+function onDownloadSave(idx, elLink) {
+  console.log(elLink);
+  const data = gSavedMemes[idx].url;
+  elLink.href = data;
+  elLink.download = 'MEME';
 }

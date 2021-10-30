@@ -272,7 +272,7 @@ function saveMeme() {
   const dataURI = gCanvas.toDataURL();
   gSavedMemes.push({ url: dataURI });
   saveToStorage(KEY_MEME, gSavedMemes);
-  alert('Great now you can see it in the Memems section');
+  alert('Great now you can see it in the Memes section');
 }
 
 function loadSavedMemesFromLocal() {

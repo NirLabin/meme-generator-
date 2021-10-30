@@ -45,6 +45,10 @@ var gTrans = {
     en: 'Share',
     he: 'שתף',
   },
+  remove: {
+    en: 'Remove',
+    he: 'מחק',
+  },
 };
 
 var gCurrLang = 'en';

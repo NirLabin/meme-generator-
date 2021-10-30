@@ -177,34 +177,18 @@
                   space-between
                 "
               >
-                <li onclick="onAddSticker(this.innerText)" class="sticker-item">
-                  🕶
-                </li>
-                <li onclick="onAddSticker(this.innerText)" class="sticker-item">
-                  👑
-                </li>
-                <li onclick="onAddSticker(this.innerText)" class="sticker-item">
-                  🎩
-                </li>
-                <li onclick="onAddSticker(this.innerText)" class="sticker-item">
-                  ⛑
-                </li>
-                <li onclick="onAddSticker(this.innerText)" class="sticker-item">
-                  😛
-                </li>
-                <li onclick="onAddSticker(this.innerText)" class="sticker-item">
-                  😍
-                </li>
-                <li onclick="onAddSticker(this.innerText)" class="sticker-item">
-                  😆
-                </li>
-                <li onclick="onAddSticker(this.innerText)" class="sticker-item">
-                  🤔
-                </li>
+                <li onclick="onAddSticker(this.innerText)">🕶</li>
+                <li onclick="onAddSticker(this.innerText)">👑</li>
+                <li onclick="onAddSticker(this.innerText)">🎩</li>
+                <li onclick="onAddSticker(this.innerText)">⛑</li>
+                <li onclick="onAddSticker(this.innerText)">😛</li>
+                <li onclick="onAddSticker(this.innerText)">😍</li>
+                <li onclick="onAddSticker(this.innerText)">😆</li>
+                <li onclick="onAddSticker(this.innerText)">🤔</li>
               </ul>
             </div>
           </div>
-          <div class="share-container align-center flex space-between">
+          <div class="share-container flex">
             <button data-trans="save" class="btn-save" onclick="onSaveMeme()">
               Save
             </button>
@@ -217,7 +201,9 @@
                 >Download</a
               >
             </button>
-            <button data-trans="share" class="btn-share">Share</button>
+            <button data-trans="share" class="btn-share" onclick="uploadImg()">
+              Share
+            </button>
           </div>
         </article>
       </section>
@@ -227,7 +213,7 @@
       <div class="modal">
         <h1>WELCOME! to MEME GENERATOR</h1>
         <p>Here you can do your own meme , so let's start!</p>
-        <p>provided by NIR LABINSKi</p>
+        <p>provided by NIR LABINSKI</p>
         <button class="close-modal" onclick="toggleModal()">Close</button>
       </div>
     </main>
@@ -237,5 +223,6 @@
     <script src="js/meme.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/i18n-service.js"></script>
+    <script src="js/upload-service.js"></script>
   </body>
 </html>

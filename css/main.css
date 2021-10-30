@@ -33,7 +33,7 @@ body.rtl {
   direction: rtl;
 }
 
-.img-gallery img:hover {
+.gallery-container .img-gallery img:hover {
   box-shadow: #000000 5px 20px 30px -10px;
   transform: scale(1.125);
 }

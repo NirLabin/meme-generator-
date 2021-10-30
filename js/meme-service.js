@@ -1,9 +1,9 @@
 'use strict';
-
+// localStorage.clear();
 const KEY_MEME = 'meme';
 var gMeme;
 var gLine;
-var gSavedMemes;
+var gSavedMemes = [];
 
 const gImages = [
   {
@@ -255,12 +255,6 @@ function isLineClicked(clickedPos, idx) {
   );
 }
 function getLine() {
-  // gMeme.lines.some((line) => {
-  //   line.pos.x <= pos.x &&
-  //     line.pos.x + line.width >= pos.x &&
-  //     line.pos.y >= pos.y; &&
-  //     line.pos.y - 'hieght'
-  // });
   var idx = getSelectedLineIdx();
   return gMeme.lines[idx];
 }
@@ -272,4 +266,26 @@ function moveLine(line, dx, dy) {
 
 function addSticker(txt) {
   addLine(txt);
+}
+
+function saveMeme() {
+  const dataURI = gCanvas.toDataURL();
+  gSavedMemes.push({ url: dataURI });
+  saveToStorage(KEY_MEME, gSavedMemes);
+  alert('Great now you can see it in the Memems section');
+}
+
+function loadSavedMemesFromLocal() {
+  gSavedMemes = loadFromStorage(KEY_MEME);
+  if (!gSavedMemes) gSavedMemes = [];
+  saveToStorage(KEY_MEME, gSavedMemes);
+}
+
+function getSavedMemes() {
+  return gSavedMemes;
+}
+
+function removeSaved(idx) {
+  gSavedMemes.splice(idx, 1);
+  saveToStorage(KEY_MEME, gSavedMemes);
 }

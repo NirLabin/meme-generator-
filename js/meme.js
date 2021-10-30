@@ -14,6 +14,8 @@ function init() {
   addTouchListeners();
   var images = getImgs();
   renderGallery(images);
+  loadSavedMemesFromLocal();
+  renderSaved();
   resetMeme();
   drawMeme();
 }
@@ -249,4 +251,32 @@ function onSetLang(lang) {
     elBody.classList.remove('rtl');
   }
   doTrans();
+}
+
+function onSaveMeme() {
+  saveMeme();
+  renderSaved();
+}
+
+function renderSaved() {
+  const savedMemes = getSavedMemes();
+  console.log(savedMemes);
+  const elSavedGallery = document.querySelector('.saved-gallery');
+  if (!savedMemes || !savedMemes.length)
+    return (elSavedGallery.innerHTML =
+      '<h2 class="saved-empty-text">You have no saved memes</h2>');
+  var strHTML = '';
+  savedMemes.forEach((meme, idx) => {
+    strHTML += `<article data-imgId="${idx}" class="saved-meme">
+                  <img src="${meme.url}" alt class="saved-img">
+                  <button class="download-meme-saved flex space-between " onclick="onDownloadMeme(${idx})">Download</button>
+                  <button class=""remove-saved-btn flex space-between " onclick="onRemoveSaved(${idx})">Remove</button>
+              </article>`;
+  });
+  document.querySelector('.saved-gallery').innerHTML = strHTML;
+}
+
+function onRemoveSaved(idx) {
+  removeSaved(idx);
+  renderSaved();
 }

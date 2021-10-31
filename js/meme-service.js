@@ -1,6 +1,7 @@
 'use strict';
 const KEY_MEME = 'meme';
 var gMeme;
+var gLineDrag;
 var gSavedMemes = [];
 
 const gImages = [
@@ -9,6 +10,7 @@ const gImages = [
     url: 'img/meme/1.jpg',
     keywords: ['funny', 'politic', 'trump', 'president'],
   },
+
   {
     id: 2,
     url: 'img/meme/2.jpg',
@@ -173,7 +175,7 @@ function _createLine(txt = 'Add text here') {
     isDrag: false,
     pos: {
       x: 225,
-      y: gMeme.lines.length === 1 ? gCanvas.width : getRandomInt(40, 450),
+      y: getRandomInt(40, 450),
     },
   };
 }
@@ -243,37 +245,13 @@ function setLineDrag(isDrag, idx) {
 function isLineClicked(clickedPos, idx) {
   const pos = gMeme.lines[idx].pos;
   let textSize = gCtx.measureText(gMeme.lines[idx].txt);
-  let leftSideText = textSize.actualBoundingBoxLeft;
-  let rightSideText = textSize.actualBoundingBoxRight;
   return (
-    clickedPos.x >= pos.x - leftSideText &&
-    clickedPos.x <= pos.x + rightSideText &&
+    clickedPos.x >= pos.x - textSize.width &&
+    clickedPos.x <= pos.x + textSize.width / 2 &&
     clickedPos.y <= pos.y &&
     clickedPos.y >= pos.y - gMeme.lines[idx].size
   );
 }
-
-// function isLineClicked(clickedPos) {
-//   var line = gMeme.lines.find((line) => {
-//     // drawLine(line);
-//     let textSize = gCtx.measureText(line.txt);
-//     // console.log({ textSize });
-//     let leftSideText = textSize.actualBoundingBoxLeft;
-//     console.log(leftSideText);
-//     let rightSideText = textSize.actualBoundingBoxRight;
-//     console.log(rightSideText);
-//     console.log(line.pos);
-//     return (
-//       clickedPos.x >= line.pos.x - leftSideText &&
-//       clickedPos.x <= line.pos.x + rightSideText &&
-//       clickedPos.y <= line.pos.y &&
-//       clickedPos.y >= line.pos.y - line.size
-//     );
-//   });
-
-//   console.log('line', line);
-//   return line;
-// }
 
 function getLine() {
   var idx = getSelectedLineIdx();

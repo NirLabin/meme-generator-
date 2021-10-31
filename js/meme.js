@@ -240,7 +240,7 @@ function onMove(ev) {
   }
 }
 
-function onUp(ev) {
+function onUp() {
   let idx = getSelectedLineIdx();
   setLineDrag(false, idx);
   document.querySelector('.meme-canvas').style.cursor = 'grab';

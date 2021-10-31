@@ -7,6 +7,7 @@ var gStartPos;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 
 const modal = document.querySelector('.modal');
+var elTextInput = document.querySelector('.meme-text-input');
 
 function init() {
   gCanvas = document.querySelector('canvas');
@@ -109,7 +110,7 @@ function onAddLine(txt) {
 }
 
 function clearTextInput() {
-  document.querySelector('.meme-text-input').value = '';
+  elTextInput.value = '';
 }
 
 function getTextInput() {
@@ -122,11 +123,12 @@ function onRemoveLine() {
   const idx = getSelectedLineIdx();
   removeLine(idx);
   drawMeme();
+  elTextInput.value = '';
 }
 
 function onSwitchLine() {
   switchLine();
-  document.querySelector('.meme-text-input').value = getTextInput();
+  elTextInput.value = getTextInput();
 }
 
 function onLineUp() {
@@ -238,7 +240,7 @@ function onMove(ev) {
   }
 }
 
-function onUp() {
+function onUp(ev) {
   let idx = getSelectedLineIdx();
   setLineDrag(false, idx);
   document.querySelector('.meme-canvas').style.cursor = 'grab';
@@ -258,13 +260,14 @@ function onSetLang(lang) {
 function onSaveMeme() {
   saveMeme();
   renderSavedMemes();
+  openSection('saved');
 }
 
 function renderSavedMemes() {
   const savedMemes = getSavedMemes();
   const elSavedGallery = document.querySelector('.saved-gallery');
   if (!savedMemes || !savedMemes.length)
-    return (elSavedGallery.innerHTML = '<h2>You have no saved memes</h2>');
+    return (elSavedGallery.innerHTML = '<h2>Your meme gallery empty</h2>');
   var strHTML = '';
   savedMemes.forEach((meme, idx) => {
     strHTML += `<article data-imgId="${idx}" class="saved-meme flex column">

@@ -49,7 +49,7 @@ body.rtl {
 .file-btn:hover {
   box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
   color: #000000;
-  transform: scale(1.2);
+  transform: scale(1.125);
 }
 
 section button {
@@ -84,7 +84,7 @@ section button:hover {
 
 .gallery-container .img-gallery img:hover {
   box-shadow: #000000 5px 20px 30px -10px;
-  transform: scale(1.125);
+  transform: scale(1.05);
 }
 
 /* LAYOUTS */
@@ -292,6 +292,7 @@ section button:hover {
 .texts-btns-container {
   flex-grow: 1;
   border-bottom: 2px solid #dedede;
+  font-size: 1.3rem;
   font-family: awesome;
 }
 
